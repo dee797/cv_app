@@ -2,6 +2,7 @@ import { useState } from 'react'
 import General from './components/General'
 import './App.css'
 import Education from './components/Education'
+import Experience from './components/PracticalExperience'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <form>
         <General />
         <Education />
+        <Experience />
       </form>
     </>
   )
