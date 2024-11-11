@@ -3,25 +3,32 @@ import CustomInput from "./Input";
 function General() {
     return (
     <section>
-      <h1>General Information</h1>
 
-      <form>
-        <label>
-          Full Name
-          <CustomInput />
-        </label>
+      <h2>General Information</h2>
 
-        <label>
-          Email
-          <CustomInput type="email" />
-        </label>
+      <fieldset>
+        <p>
+          <label>
+            Full Name:
+            <CustomInput />
+          </label>
+        </p>
 
-        <label>
-          Phone Number
-          <CustomInput type="tel" />
-        </label>
+        <p>
+          <label>
+            Email:
+            <CustomInput type="email" />
+          </label>
+        </p>
 
-      </form>
+        <p>
+          <label>
+            Phone Number:
+            <CustomInput type="tel" />
+          </label>
+        </p>
+
+      </fieldset>
 
     </section>
     );
