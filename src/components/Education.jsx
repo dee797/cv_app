@@ -1,48 +1,47 @@
 import { useState } from "react";
 import CustomInput from "./Input";
 
+function EducationFieldset({num}) {
+    return (
+        <fieldset>
+        <legend>Education #{num}</legend>
+            <p>
+                <label>
+                    School Name:&nbsp;
+                    <CustomInput />
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Title of Study:&nbsp;
+                    <CustomInput />
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Date of Study:&nbsp;
+                    <CustomInput />
+                </label>
+            </p>
+        </fieldset>
+    );
+}
+
+
 function Education() {
-
-    const createEducation = () => {
-        return (
-            <fieldset key={crypto.randomUUID()}>
-                <p>
-                    <label>
-                        School Name
-                        <CustomInput />
-                    </label>
-                </p>
-
-                <p>
-                    <label>
-                        Title of Study
-                        <CustomInput />
-                    </label>
-                </p>
-
-                <p>
-                    <label>
-                        Date of Study
-                        <CustomInput />
-                    </label>
-                </p>
-            </fieldset>
-        );
-    }
-
-    const [items, setItems] = useState([createEducation()]);
-
-    console.log(items);
+    const [items, setItems] = useState([{id: 1, key: crypto.randomUUID()}]);
 
     return (
         <section>
             <h2>Education</h2>
             
-            {items.map((item) => item)}
+            {items.map((item) => {
+                return <EducationFieldset key={item.key} num={item.id} /> 
+            })}
 
-            <button onClick={() => {
-                setItems(oldItems => [...oldItems, createEducation()]);
-            }}>
+            <button type="button" onClick={() => setItems(oldItems => [...oldItems, {id: oldItems.length + 1, key: crypto.randomUUID()}])}>
                 Add Education
             </button>
 
