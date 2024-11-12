@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CustomInput from "./Input";
 
-function ExperienceFieldset({num}) {
+function ExperienceFieldset({num, inputChange}) {
     const [isChecked, setChecked] = useState(false);
 
     return (
@@ -10,35 +10,35 @@ function ExperienceFieldset({num}) {
             <p>
                 <label>
                     Company Name:&nbsp;
-                    <CustomInput />
+                    <CustomInput inputChange={inputChange} name={`companyName${num}`}/>
                 </label>
             </p>
 
             <p>
                 <label>
                     Position Title:&nbsp;
-                    <CustomInput />
+                    <CustomInput inputChange={inputChange} name={`positionTitle${num}`}/>
                 </label>
             </p>
 
             <p>
                 <label>
                     Description:&nbsp;
-                    <CustomInput />
+                    <CustomInput inputChange={inputChange} name={`description${num}`}/>
                 </label>
             </p>
 
             <p>
                 <label>
                     Start Date:&nbsp;
-                    <CustomInput type="date"/>
+                    <CustomInput type="date" inputChange={inputChange} name={`startDate${num}`}/>
                 </label>
             </p>
 
             <p>
                 <label>
                     End Date:&nbsp;
-                    <CustomInput type="date" disabled={isChecked}/>
+                    <CustomInput type="date" disabled={isChecked} inputChange={inputChange} name={`endDate${num}`}/>
                 </label>
             </p>
 
@@ -54,18 +54,17 @@ function ExperienceFieldset({num}) {
 }
 
 
-function Experience() {
-    const [items, setItems] = useState([{id: 1, key: crypto.randomUUID()}]);
+function Experience({ inputChange, experienceItems, setExperienceItems }) {
 
     return (
         <section>
             <h2>Practical Experience</h2>
             
-            {items.map((item) => {
-                return <ExperienceFieldset key={item.key} num={item.id} /> 
+            {experienceItems.map((item) => {
+                return <ExperienceFieldset key={item.key} num={item.id} inputChange={inputChange} /> 
             })}
 
-            <button type="button" onClick={() => setItems(oldItems => [...oldItems, {id: oldItems.length + 1, key: crypto.randomUUID()}])}>
+            <button type="button" onClick={() => setExperienceItems(oldItems => [...oldItems, {id: oldItems.length + 1, key: crypto.randomUUID()}])}>
                 Add Experience
             </button>
 

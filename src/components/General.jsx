@@ -1,6 +1,6 @@
 import CustomInput from "./Input";
 
-function General() {
+function General({ inputChange }) {
     return (
     <section>
 
@@ -10,21 +10,21 @@ function General() {
         <p>
           <label>
             Full Name:
-            <CustomInput />
+            <CustomInput inputChange={inputChange} name="fullName"/>
           </label>
         </p>
 
         <p>
           <label>
             Email:
-            <CustomInput type="email" />
+            <CustomInput type="email" inputChange={inputChange} name="email"/>
           </label>
         </p>
 
         <p>
           <label>
             Phone Number:
-            <CustomInput type="tel" />
+            <CustomInput type="tel" inputChange={inputChange} name="phone"/>
           </label>
         </p>
 

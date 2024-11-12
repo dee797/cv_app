@@ -1,28 +1,28 @@
 import { useState } from "react";
 import CustomInput from "./Input";
 
-function EducationFieldset({num}) {
+function EducationFieldset({num, inputChange}) {
     return (
         <fieldset>
         <legend>Education #{num}</legend>
             <p>
                 <label>
                     School Name:&nbsp;
-                    <CustomInput />
+                    <CustomInput inputChange={inputChange} name={`schoolName${num}`}/>
                 </label>
             </p>
 
             <p>
                 <label>
                     Title of Study:&nbsp;
-                    <CustomInput />
+                    <CustomInput inputChange={inputChange} name={`studyTitle${num}`}/>
                 </label>
             </p>
 
             <p>
                 <label>
-                    Date of Study:&nbsp;
-                    <CustomInput />
+                    Expected/Actual Graduation Date:&nbsp;
+                    <CustomInput type="date" inputChange={inputChange} name={`graduationDate${num}`}/>
                 </label>
             </p>
         </fieldset>
@@ -30,18 +30,17 @@ function EducationFieldset({num}) {
 }
 
 
-function Education() {
-    const [items, setItems] = useState([{id: 1, key: crypto.randomUUID()}]);
+function Education({ inputChange, educationItems, setEducationItems }) {
 
     return (
         <section>
             <h2>Education</h2>
             
-            {items.map((item) => {
-                return <EducationFieldset key={item.key} num={item.id} /> 
+            {educationItems.map((item) => {
+                return <EducationFieldset key={item.key} num={item.id} inputChange={inputChange}/> 
             })}
 
-            <button type="button" onClick={() => setItems(oldItems => [...oldItems, {id: oldItems.length + 1, key: crypto.randomUUID()}])}>
+            <button type="button" onClick={() => setEducationItems(oldItems => [...oldItems, {id: oldItems.length + 1, key: crypto.randomUUID()}])}>
                 Add Education
             </button>
 
