@@ -6,7 +6,7 @@ import Experience from './components/PracticalExperience'
 import './App.css'
 
 
-function Resume({ formData, educationItems, experienceItems}) {
+function Resume({ formData, educationItems, experienceItems }) {
   
   return (
     <main>
@@ -20,7 +20,6 @@ function Resume({ formData, educationItems, experienceItems}) {
           const title = `studyTitle${item.id}`;
           const date = `graduationDate${item.id}`;
       
-          console.log(formData[school])
           return (
             <section key={item.key}>
               <p><strong>{formData[school]}</strong></p>
@@ -43,7 +42,7 @@ function Resume({ formData, educationItems, experienceItems}) {
           <section key={item.key}>
             <p><strong>{formData[company]}</strong></p>
             <p><em>{formData[position]}</em></p>
-            <p><em>{`${formData[start]} - ${!end ? formData[end] : "Present"}`}</em></p>
+            <p><em>{`${formData[start]} - ${formData[end] ? formData[end] : "Present"}`}</em></p>
             <p>{formData[description]}</p>
           </section>
         )
@@ -55,12 +54,11 @@ function Resume({ formData, educationItems, experienceItems}) {
 
 
 function App() {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({});
   const [educationItems, setEducationItems] = useState([{id: 1, key: crypto.randomUUID()}]);
   const [experienceItems, setExperienceItems] = useState([{id: 1, key: crypto.randomUUID()}]);
 
-  const handleInputChange = event => {
-    const {name, value} = event.target;
+  const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value});
   }
 
@@ -81,11 +79,11 @@ function App() {
       </p>
       <hr/>
       <form onSubmit={handleSubmit}>
-        <General inputChange={handleInputChange}/>
+        <General inputChange={handleInputChange} formData={formData}/>
         <hr/>
-        <Education inputChange={handleInputChange} educationItems={educationItems} setEducationItems={setEducationItems}/>
+        <Education inputChange={handleInputChange} educationItems={educationItems} setEducationItems={setEducationItems} formData={formData}/>
         <hr/>
-        <Experience inputChange={handleInputChange} experienceItems={experienceItems} setExperienceItems={setExperienceItems}/>
+        <Experience inputChange={handleInputChange} experienceItems={experienceItems} setExperienceItems={setExperienceItems} formData={formData}/>
         <button type='submit'>Submit</button>
       </form>
     </>
