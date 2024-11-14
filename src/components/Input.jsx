@@ -1,5 +1,5 @@
 
-function CustomInput({ type = "text", disabled = false, inputChange="", name, formData, checked="", setCheck="", num=""}) {
+function CustomInput({ type = "text", disabled = false, inputChange="", name, formData, num="", required, checked=""}) {
 
     return (
         <input 
@@ -12,14 +12,15 @@ function CustomInput({ type = "text", disabled = false, inputChange="", name, fo
                 () => {}
                 }
             disabled={disabled}
-            onClick={type === "checkbox" ? () => 
+            onClick={type === "checkbox" ? (event) => 
                 {
-                    setCheck(isChecked => isChecked ? false : true);
+                    inputChange(name, event.target.checked);
                     inputChange(`endDate${num}`, "");
                 } :
                 () => {}
             }
             checked={checked}
+            required={required}
         />
     )
 }
