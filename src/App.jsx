@@ -59,7 +59,7 @@ function App() {
   const [experienceItems, setExperienceItems] = useState([{id: 1, key: crypto.randomUUID()}]);
 
   const handleInputChange = (name, value) => {
-    setFormData({ ...formData, [name]: value});
+    setFormData(oldFormData => ({ ...oldFormData, [name]: value}));
   }
 
   const handleSubmit = event => {
