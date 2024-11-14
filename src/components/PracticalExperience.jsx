@@ -2,43 +2,48 @@ import { useState } from "react";
 import CustomInput from "./Input";
 
 function ExperienceFieldset({num, inputChange, formData}) {
-    const [isChecked, setChecked] = useState(false);
 
     return (
         <fieldset>
         <legend>Experience #{num}</legend>
             <p>
                 <label>
-                    Company Name:&nbsp;
-                    <CustomInput inputChange={inputChange} name={`companyName${num}`} formData={formData}/>
+                    *Company Name:&nbsp;
+                    <CustomInput inputChange={inputChange} name={`companyName${num}`} formData={formData} required={true}/>
                 </label>
             </p>
 
             <p>
                 <label>
-                    Position Title:&nbsp;
-                    <CustomInput inputChange={inputChange} name={`positionTitle${num}`} formData={formData}/>
+                    *Position Title:&nbsp;
+                    <CustomInput inputChange={inputChange} name={`positionTitle${num}`} formData={formData} required={true}/>
                 </label>
             </p>
 
             <p>
                 <label>
-                    Description:&nbsp;
-                    <CustomInput inputChange={inputChange} name={`description${num}`} formData={formData}/>
+                    *Description:&nbsp;
+                    <CustomInput inputChange={inputChange} name={`description${num}`} formData={formData} required={true}/>
                 </label>
             </p>
 
             <p>
                 <label>
-                    Start Date:&nbsp;
-                    <CustomInput type="date" inputChange={inputChange} name={`startDate${num}`} formData={formData}/>
+                    *Start Date:&nbsp;
+                    <CustomInput type="date" inputChange={inputChange} name={`startDate${num}`} formData={formData} required={true}/>
                 </label>
             </p>
 
             <p>
                 <label>
                     End Date:&nbsp;
-                    <CustomInput type="date" disabled={isChecked} inputChange={inputChange} name={`endDate${num}`} formData={formData}/>
+                    <CustomInput 
+                        type="date" 
+                        disabled={formData[`check${num}`]} 
+                        inputChange={inputChange} name={`endDate${num}`} 
+                        formData={formData} 
+                        required={formData[`check${num}`] ? false : true}
+                    />
                 </label>
             </p>
 
@@ -49,11 +54,12 @@ function ExperienceFieldset({num, inputChange, formData}) {
                         type="checkbox" 
                         inputChange={inputChange}
                         name={`check${num}`}
-                        checked={isChecked}
-                        setCheck={setChecked}
                         formData={formData}
                         num={num}
+                        required={false}
+                        checked={formData[`check${num}`]}
                         />
+                    {console.log(formData)}
                 </label>
             </p>
 

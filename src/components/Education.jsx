@@ -7,22 +7,22 @@ function EducationFieldset({num, inputChange, formData}) {
         <legend>Education #{num}</legend>
             <p>
                 <label>
-                    School Name:&nbsp;
-                    <CustomInput inputChange={inputChange} name={`schoolName${num}`} formData={formData}/>
+                    *School Name:&nbsp;
+                    <CustomInput inputChange={inputChange} name={`schoolName${num}`} formData={formData} required={true}/>
                 </label>
             </p>
 
             <p>
                 <label>
-                    Title of Study:&nbsp;
-                    <CustomInput inputChange={inputChange} name={`studyTitle${num}`} formData={formData}/>
+                    *Title of Study:&nbsp;
+                    <CustomInput inputChange={inputChange} name={`studyTitle${num}`} formData={formData} required={true}/>
                 </label>
             </p>
 
             <p>
                 <label>
-                    Expected/Actual Graduation Date:&nbsp;
-                    <CustomInput type="date" inputChange={inputChange} name={`graduationDate${num}`} formData={formData}/>
+                    *Expected/Actual Graduation Date:&nbsp;
+                    <CustomInput type="date" inputChange={inputChange} name={`graduationDate${num}`} formData={formData} required={true}/>
                 </label>
             </p>
         </fieldset>

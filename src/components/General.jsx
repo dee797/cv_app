@@ -9,22 +9,22 @@ function General({ inputChange, formData }) {
       <fieldset>
         <p>
           <label>
-            Full Name:
-            <CustomInput inputChange={inputChange} name="fullName" formData={formData}/>
+            *Full Name:
+            <CustomInput inputChange={inputChange} name="fullName" formData={formData} required={true}/>
           </label>
         </p>
 
         <p>
           <label>
-            Email:
-            <CustomInput type="email" inputChange={inputChange} name="email" formData={formData}/>
+            *Email:
+            <CustomInput type="email" inputChange={inputChange} name="email" formData={formData} required={true}/>
           </label>
         </p>
 
         <p>
           <label>
-            Phone Number:
-            <CustomInput type="tel" inputChange={inputChange} name="phone" formData={formData}/>
+            *Phone Number:
+            <CustomInput type="tel" inputChange={inputChange} name="phone" formData={formData} required={true}/>
           </label>
         </p>
 
