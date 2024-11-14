@@ -59,7 +59,6 @@ function ExperienceFieldset({num, inputChange, formData}) {
                         required={false}
                         checked={formData[`check${num}`]}
                         />
-                    {console.log(formData)}
                 </label>
             </p>
 
