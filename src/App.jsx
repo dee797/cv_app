@@ -48,15 +48,27 @@ function Resume({ formData, educationItems, experienceItems }) {
         )
       })}
 
+      <button 
+        type="button" 
+        onClick={() => {
+          root.render(
+            <StrictMode>
+              <App editFormData={formData} editEducationItems={educationItems} editExperienceItems={experienceItems}/>
+            </StrictMode>
+        )}}
+        >
+          Edit Details
+        </button>
+
     </main>
   )
 }
 
 
-function App() {
-  const [formData, setFormData] = useState({});
-  const [educationItems, setEducationItems] = useState([{id: 1, key: crypto.randomUUID()}]);
-  const [experienceItems, setExperienceItems] = useState([{id: 1, key: crypto.randomUUID()}]);
+function App({ editFormData="", editEducationItems="", editExperienceItems="" }) {
+  const [formData, setFormData] = useState(editFormData ? editFormData : {});
+  const [educationItems, setEducationItems] = useState(editEducationItems ? editEducationItems : [{id: 1, key: crypto.randomUUID()}]);
+  const [experienceItems, setExperienceItems] = useState(editExperienceItems ? editExperienceItems : [{id: 1, key: crypto.randomUUID()}]);
 
   const handleInputChange = (name, value) => {
     setFormData(oldFormData => ({ ...oldFormData, [name]: value}));
