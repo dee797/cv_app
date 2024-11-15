@@ -1,8 +1,9 @@
 
-function CustomInput({ type = "text", disabled = false, inputChange="", name, formData, num="", required, checked=""}) {
+function CustomInput({ type = "text", disabled = false, inputChange="", name, formData, num="", required, checked="", classes}) {
 
     return (
         <input 
+            className={classes}
             type={type}
             name={name}
             value={formData.hasOwnProperty(name) ? formData[name] : ""}
