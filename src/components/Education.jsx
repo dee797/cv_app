@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CustomInput from "./Input";
 
 function EducationFieldset({num, inputChange, formData}) {
