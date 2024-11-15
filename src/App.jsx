@@ -3,7 +3,6 @@ import root from './main'
 import General from './components/General'
 import Education from './components/Education'
 import Experience from './components/PracticalExperience'
-import './App.css'
 
 
 function Resume({ formData, educationItems, experienceItems }) {
