@@ -24,8 +24,8 @@ function ExperienceFieldset({num, inputChange, formData}) {
             <p>
                 <label className="block m-5">
                     *Description:&nbsp;
-                    <CustomInput inputChange={inputChange} name={`description${num}`} formData={formData} required={true}
-                    classes="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1.5 w-full focus:ring-0"/>
+                    <CustomInput inputChange={inputChange} name={`description${num}`} formData={formData} required={true} type="textarea"
+                    classes="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1.5 w-full focus:ring-0 h-32"/>
                 </label>
             </p>
 
@@ -46,7 +46,7 @@ function ExperienceFieldset({num, inputChange, formData}) {
                         inputChange={inputChange} name={`endDate${num}`} 
                         formData={formData} 
                         required={formData[`check${num}`] ? false : true}
-                        classes="inline ml-5 mr-7 mb-16 flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1.5 focus:ring-0"
+                        classes="inline ml-5 mr-7 mb-10 flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1.5 focus:ring-0"
                     />
 
                     <label className="inline">

@@ -8,28 +8,29 @@ import Experience from './components/PracticalExperience'
 function Resume({ formData, educationItems, experienceItems }) {
   
   return (
-    <main>
-      <h2>{formData.fullName}</h2>
-      <p>{formData.email} | {formData.phone}</p>
+    <>
+    <section className='bg-white text-black flex flex-col mb-10 pb-10'>
+      <h2 className='font-bold text-3xl text-center m-10 mb-5 text-wrap'>{formData.fullName}</h2>
+      <p className='text-xl font-semibold text-center m-5 mt-0 text-wrap'>{formData.email} | {formData.phone}</p>
       <hr/>
 
-      <p>EDUCATION</p>
+      <p className='font-semibold m-10'>EDUCATION</p>
       {educationItems.map(item => {
           const school = `schoolName${item.id}`;
           const title = `studyTitle${item.id}`;
           const date = `graduationDate${item.id}`;
       
           return (
-            <section key={item.key}>
+            <section key={item.key} className='ml-10 mb-10'>
               <p><strong>{formData[school]}</strong></p>
-              <p><em>{formData[title]}</em></p>
-              <p><em>{formData[date]}</em></p>
+              <p>Major: <em>{formData[title]}</em></p>
+              <p>Graduation Date: <em>{formData[date]}</em></p>
             </section>
           )
       })}
       <hr/>
       
-      <p>EXPERIENCE</p>
+      <p className='font-semibold m-10'>EXPERIENCE</p>
       {experienceItems.map(item => {
         const company = `companyName${item.id}`;
         const position = `positionTitle${item.id}`;
@@ -38,28 +39,29 @@ function Resume({ formData, educationItems, experienceItems }) {
         const end = `endDate${item.id}`;
     
         return (
-          <section key={item.key}>
+          <section key={item.key} className='ml-10 mb-10'>
             <p><strong>{formData[company]}</strong></p>
-            <p><em>{formData[position]}</em></p>
-            <p><em>{`${formData[start]} - ${formData[end] ? formData[end] : "Present"}`}</em></p>
-            <p>{formData[description]}</p>
+            <p>Position: <em>{formData[position]}</em></p>
+            <p>Tenure: <em>{`${formData[start]} - ${formData[end] ? formData[end] : "Present"}`}</em></p>
+            <p className='ml-5 whitespace-pre-wrap'>{formData[description]}</p>
           </section>
         )
       })}
+    </section>
 
-      <button 
-        type="button" 
-        onClick={() => {
-          root.render(
-            <StrictMode>
-              <App editFormData={formData} editEducationItems={educationItems} editExperienceItems={experienceItems}/>
-            </StrictMode>
-        )}}
-        >
-          Edit Details
-        </button>
-
-    </main>
+    <button 
+    type="button" 
+    onClick={() => {
+      root.render(
+        <StrictMode>
+          <App editFormData={formData} editEducationItems={educationItems} editExperienceItems={experienceItems}/>
+        </StrictMode>
+    )}}
+    className='block ml-auto'
+    >
+      Edit Details
+    </button>
+    </>
   )
 }
 
@@ -84,8 +86,8 @@ function App({ editFormData="", editEducationItems="", editExperienceItems="" })
 
   return (
     <>
-      <h1>Resume Builder</h1>
-      <p>
+      <h1 className='text-center m-10'>Resume Builder</h1>
+      <p className='text-center m-10'>
         Fill out the info below to create your own resume
       </p>
       <hr/>
@@ -95,7 +97,7 @@ function App({ editFormData="", editEducationItems="", editExperienceItems="" })
         <Education inputChange={handleInputChange} educationItems={educationItems} setEducationItems={setEducationItems} formData={formData}/>
         <hr/>
         <Experience inputChange={handleInputChange} experienceItems={experienceItems} setExperienceItems={setExperienceItems} formData={formData}/>
-        <button type='submit'>Submit</button>
+        <button type='submit' className='block mb-7 mt-16 ml-auto'>Submit</button>
       </form>
     </>
   )
