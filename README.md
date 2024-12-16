@@ -1,8 +1,12 @@
-# React + Vite
+# Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend project that lets you create your own basic resume. You may include things like your work history, education, and so on.
+Based off of The Odin Project's "CV Application" assignment. The following technologies were used:
 
-Currently, two official plugins are available:
+- ReactJS
+- Tailwind CSS
+- Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit the resume builder at https://cvapp-mu.vercel.app/. 
+
+** None of the data you enter is retained whatsoever.
