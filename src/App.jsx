@@ -21,7 +21,7 @@ function Resume({ formData, educationItems, experienceItems }) {
           const date = `graduationDate${item.id}`;
       
           return (
-            <section key={item.key} className='ml-10 mb-10'>
+            <section key={item.key} className='mx-10 mb-10'>
               <p><strong>{formData[school]}</strong></p>
               <p>Major: <em>{formData[title]}</em></p>
               <p>Graduation Date: <em>{formData[date]}</em></p>
@@ -39,7 +39,7 @@ function Resume({ formData, educationItems, experienceItems }) {
         const end = `endDate${item.id}`;
     
         return (
-          <section key={item.key} className='ml-10 mb-10'>
+          <section key={item.key} className='mx-10 mb-10'>
             <p><strong>{formData[company]}</strong></p>
             <p>Position: <em>{formData[position]}</em></p>
             <p>Tenure: <em>{`${formData[start]} - ${formData[end] ? formData[end] : "Present"}`}</em></p>
