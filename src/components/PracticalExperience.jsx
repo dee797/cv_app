@@ -38,7 +38,7 @@ function ExperienceFieldset({num, inputChange, formData}) {
             </p>
 
             <p>
-                <label className="inline m-5">
+                <label className="flex flex-col m-5">
                     End Date:&nbsp;<br></br>
                     <CustomInput 
                         type="date" 
@@ -46,7 +46,7 @@ function ExperienceFieldset({num, inputChange, formData}) {
                         inputChange={inputChange} name={`endDate${num}`} 
                         formData={formData} 
                         required={formData[`check${num}`] ? false : true}
-                        classes="inline ml-5 mr-7 mb-10 flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1.5 focus:ring-0"
+                        classes="mr-7 mb-4 w-fit rounded-md border-0 bg-transparent py-1.5 pl-1.5 focus:ring-0"
                     />
 
                     <label className="inline">
@@ -80,7 +80,7 @@ function Experience({ inputChange, experienceItems, setExperienceItems, formData
             })}
 
             <button type="button" onClick={() => setExperienceItems(oldItems => [...oldItems, {id: oldItems.length + 1, key: crypto.randomUUID()}])}
-                className="block mb-10 mx-auto"
+                className="block mb-10 mx-auto mt-4"
             >
                 Add Experience
             </button>
